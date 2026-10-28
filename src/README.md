@@ -9,7 +9,7 @@
 | 文件 / 模块 | 用途与连接关系 |
 | --- | --- |
 | [main.tsx](main.tsx) | 挂载 React，加载全局样式，在 StrictMode 中以 ThemeProvider 包裹 RouterProvider |
-| [router.tsx](router.tsx) | 创建 Hash Router，注册控制台、设置、保留的项目页及未知路径，共用 AppLayout；子路由提供 Breadcrumb 文案 |
+| [router.tsx](router.tsx) | 创建 Hash Router，注册控制台、设置、更多及未知路径，共用 AppLayout；子路由提供 Breadcrumb 文案 |
 | [app-layout.tsx](components/app-layout.tsx) | 组合 TooltipProvider、SidebarProvider、AppSidebar、顶部栏和 Outlet；读取匹配路由生成 Breadcrumb，提供主题切换按钮和内容滚动区 |
 | [page.tsx](components/page.tsx) | 为页面提供统一的纵向 flex 容器、宽度和间距，通过 children 与 className 组合内容 |
 | [index.css](index.css) | 加载 Tailwind、动画与字体，定义明暗主题、语义颜色、圆角和全局样式 |
@@ -23,7 +23,7 @@ main.tsx
       AppLayout
         AppSidebar + 顶部栏
         Outlet
-          InDevelopmentPage / ProjectsPage / NotFoundPage
+          InDevelopmentPage / NotFoundPage
             Page
 ```
 
@@ -31,9 +31,8 @@ main.tsx
 
 | 文件 | 路由 | 用途与当前状态 |
 | --- | --- | --- |
-| [in-development.tsx](pages/in-development.tsx) | `#/`、`#/settings` | 控制台和设置的占位内容，显示对应标题与“开发中” |
+| [in-development.tsx](pages/in-development.tsx) | `#/`、`#/settings`、`#/projects` | 控制台、设置和更多的占位内容，显示对应标题与“开发中” |
 | [dashboard.tsx](pages/dashboard.tsx) | 未注册 | 保留原概览示例，当前不渲染 |
-| [projects.tsx](pages/projects.tsx) | `#/projects` | 保留项目列表空状态与返回控制台入口，不在侧栏展示；“新建项目”按钮尚未绑定业务操作 |
 | [not-found.tsx](pages/not-found.tsx) | 未匹配的 Hash 路径 | 显示未找到页面，并提供返回控制台的路由链接 |
 
 ## 侧栏与组合组件

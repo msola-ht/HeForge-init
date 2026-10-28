@@ -3,7 +3,6 @@ import { createHashRouter } from "react-router-dom"
 import { AppLayout } from "@/components/app-layout"
 import { InDevelopmentPage } from "@/pages/in-development"
 import { NotFoundPage } from "@/pages/not-found"
-import { ProjectsPage } from "@/pages/projects"
 
 export const router = createHashRouter([
   {
@@ -22,8 +21,8 @@ export const router = createHashRouter([
       },
       {
         path: "projects",
-        element: <ProjectsPage />,
-        handle: { crumb: "项目" },
+        element: <InDevelopmentPage title="更多" />,
+        handle: { crumb: "更多" },
       },
       {
         path: "*",
