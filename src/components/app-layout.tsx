@@ -74,9 +74,6 @@ export function AppLayout() {
                 </BreadcrumbList>
               </Breadcrumb>
               <div className="ml-auto flex items-center gap-2">
-                <span className="hidden rounded-full border px-2.5 py-0.5 text-xs text-muted-foreground sm:inline-flex">
-                  本地模式
-                </span>
                 <ThemeToggle />
               </div>
             </div>
