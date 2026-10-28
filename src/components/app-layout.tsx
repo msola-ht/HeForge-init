@@ -1,7 +1,7 @@
 import { MoonIcon, SunIcon } from "lucide-react"
 import { Link, Outlet, useMatches } from "react-router-dom"
 
-import { WorkspaceSidebar } from "@/components/workspace-sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -52,7 +52,7 @@ export function AppLayout() {
   return (
     <TooltipProvider>
       <SidebarProvider className="h-svh overflow-hidden">
-        <WorkspaceSidebar />
+        <AppSidebar />
         <SidebarInset className="min-h-0 overflow-hidden">
           <header className="shrink-0 border-b">
             <div className="flex h-14 w-full items-center gap-2 px-4 md:px-6">
