@@ -12,9 +12,14 @@
   "app": {
     "windows": [
       {
+        "label": "main",
         "title": "HeForge-init",
         "width": 1280,
         "height": 720,
+        "minWidth": 900,
+        "minHeight": 600,
+        "center": true,
+        "preventOverflow": true,
         "resizable": true,
         "fullscreen": false
       }

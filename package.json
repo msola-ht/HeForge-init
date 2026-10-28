@@ -1,7 +1,7 @@
 {
   "name": "HeForge-init",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:info": "tauri info",
+    "tauri:build": "tauri build",
+    "tauri:build:macos:universal": "tauri build --target universal-apple-darwin"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
