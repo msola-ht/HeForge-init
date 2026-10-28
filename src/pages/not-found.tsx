@@ -15,7 +15,7 @@ export function NotFoundPage() {
           请检查地址，或返回全局工作台。
         </p>
       </div>
-      <Button render={<Link to="/" />}>返回概览</Button>
+      <Button render={<Link to="/" />}>返回控制台</Button>
     </Page>
   )
 }

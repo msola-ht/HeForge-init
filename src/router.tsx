@@ -1,7 +1,7 @@
 import { createHashRouter } from "react-router-dom"
 
 import { AppLayout } from "@/components/app-layout"
-import { DashboardPage } from "@/pages/dashboard"
+import { InDevelopmentPage } from "@/pages/in-development"
 import { NotFoundPage } from "@/pages/not-found"
 import { ProjectsPage } from "@/pages/projects"
 
@@ -12,8 +12,13 @@ export const router = createHashRouter([
     children: [
       {
         index: true,
-        element: <DashboardPage />,
-        handle: { crumb: "概览" },
+        element: <InDevelopmentPage title="控制台" />,
+        handle: { crumb: "控制台" },
+      },
+      {
+        path: "settings",
+        element: <InDevelopmentPage title="设置" />,
+        handle: { crumb: "设置" },
       },
       {
         path: "projects",

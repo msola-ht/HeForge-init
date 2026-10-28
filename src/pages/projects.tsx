@@ -26,7 +26,7 @@ export function ProjectsPage() {
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" render={<Link to="/" />}>
-            返回概览
+            返回控制台
           </Button>
           <Button>
             <PlusIcon data-icon="inline-start" />

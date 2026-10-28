@@ -9,8 +9,8 @@
 | 文件 / 模块 | 用途与连接关系 |
 | --- | --- |
 | [main.tsx](main.tsx) | 挂载 React，加载全局样式，在 StrictMode 中以 ThemeProvider 包裹 RouterProvider |
-| [router.tsx](router.tsx) | 创建 Hash Router，注册概览、项目及未知路径，共用 AppLayout；子路由提供 Breadcrumb 文案 |
-| [app-layout.tsx](components/app-layout.tsx) | 组合 TooltipProvider、SidebarProvider、AppSidebar、顶部栏和 Outlet；读取匹配路由生成 Breadcrumb，提供主题切换按钮和内容滚动区 |
+| [router.tsx](router.tsx) | 创建 Hash Router，注册控制台、设置、保留的项目页及未知路径，共用 AppLayout；子路由提供 Breadcrumb 文案 |
+| [app-layout.tsx](components/app-layout.tsx) | 组合 TooltipProvider、SidebarProvider、WorkspaceSidebar、顶部栏和 Outlet；读取匹配路由生成 Breadcrumb，提供主题切换按钮和内容滚动区 |
 | [page.tsx](components/page.tsx) | 为页面提供统一的纵向 flex 容器、宽度和间距，通过 children 与 className 组合内容 |
 | [index.css](index.css) | 加载 Tailwind、动画与字体，定义明暗主题、语义颜色、圆角和全局样式 |
 
@@ -21,9 +21,9 @@ main.tsx
   ThemeProvider
     RouterProvider
       AppLayout
-        AppSidebar + 顶部栏
+        WorkspaceSidebar + 顶部栏
         Outlet
-          DashboardPage / ProjectsPage / NotFoundPage
+          InDevelopmentPage / ProjectsPage / NotFoundPage
             Page
 ```
 
@@ -31,15 +31,17 @@ main.tsx
 
 | 文件 | 路由 | 用途与当前状态 |
 | --- | --- | --- |
-| [dashboard.tsx](pages/dashboard.tsx) | `#/` | 概览、静态统计、最近项目占位及快速开始；“新建项目”链接导航到项目页，统计不是后端查询结果 |
-| [projects.tsx](pages/projects.tsx) | `#/projects` | 项目列表空状态与返回概览入口；“新建项目”按钮尚未绑定业务操作 |
-| [not-found.tsx](pages/not-found.tsx) | 未匹配的 Hash 路径 | 显示未找到页面，并提供返回概览的路由链接 |
+| [in-development.tsx](pages/in-development.tsx) | `#/`、`#/settings` | 控制台和设置的占位内容，显示对应标题与“开发中” |
+| [dashboard.tsx](pages/dashboard.tsx) | 未注册 | 保留原概览示例，当前不渲染 |
+| [projects.tsx](pages/projects.tsx) | `#/projects` | 保留项目列表空状态与返回控制台入口，不在侧栏展示；“新建项目”按钮尚未绑定业务操作 |
+| [not-found.tsx](pages/not-found.tsx) | 未匹配的 Hash 路径 | 显示未找到页面，并提供返回控制台的路由链接 |
 
 ## 侧栏与组合组件
 
 | 文件 / 模块 | 输入、用途与当前状态 |
 | --- | --- |
-| [app-sidebar.tsx](components/app-sidebar.tsx) | 持有示例用户、团队和导航数据，组合 NavMain、NavProjects 与 NavUser；顶部显示第一个示例团队，未接入真实工作区 |
+| [workspace-sidebar.tsx](components/workspace-sidebar.tsx) | 组合 Sidebar 公开 API，仅展示控制台和设置；按当前路由高亮，移动端选择入口后关闭抽屉 |
+| [app-sidebar.tsx](components/app-sidebar.tsx) | 保留生成块的示例用户、团队和导航数据，当前不被全局壳层引用 |
 | [nav-main.tsx](components/nav-main.tsx) | 接收 items，渲染可折叠主导航和子链接；当前调用方传入的是示例链接 |
 | [nav-projects.tsx](components/nav-projects.tsx) | 接收 projects，渲染项目导航和操作菜单；查看、分享、删除菜单尚未绑定业务处理 |
 | [nav-user.tsx](components/nav-user.tsx) | 接收 user，显示头像、用户信息及账户菜单；尚无认证、计费或退出登录实现 |
