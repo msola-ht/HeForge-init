@@ -2,8 +2,7 @@
 
 import * as React from "react"
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
+import { AppNavigation } from "@/components/app-navigation"
 import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,
@@ -202,8 +201,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <AppNavigation />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
